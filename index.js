@@ -12,7 +12,7 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-  origin: 'https://frontend-ls.vercel.app',
+  origin: 'https://frontend-ls-thq9.vercel.app/',
   credentials: true
 }));
 
