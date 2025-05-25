@@ -43,6 +43,10 @@ const startServer = async () => {
  
 startServer();
 
+app.get('/', (req, res) => {
+  res.send('Benvenuto nel mio server Express!');
+});
+
 //--------------------------------------login-----------------------------------------
 
 app.post('/login', async (req, res) => {
