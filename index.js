@@ -73,7 +73,7 @@ app.post('/login', async (req, res) => {
     res.status(200).json({ message: 'Login riuscito' });
 });
 
-app.post('/registr', async (req, res) => {
+app.post('/register', async (req, res) => {
     if (!database) {
         return res.status(500).json({ message: 'Database non connesso' });
     }
