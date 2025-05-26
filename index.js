@@ -65,8 +65,9 @@ app.post('/login', async (req, res) => {
     const token = genToken(user); 
     res.cookie('token', token, {
         httpOnly: true,
-        sameSite: 'Lax',
-        maxAge: 3600000,   
+        secure: true,           // OBBLIGATORIO per SameSite=None
+        sameSite: 'None',       // NECESSARIO per cookie cross-site (Vercel -> Render)
+        maxAge: 3600000,
         signed: true
     });
 
@@ -112,9 +113,10 @@ app.post('/register', async (req, res) => {
 app.post('/logout', (req, res) => {
     res.clearCookie('token', {
         httpOnly: true,
-        sameSite: 'Lax',
+        secure: true,
+        sameSite: 'None',
         signed: true,
-        path: '/', 
+        path: '/',
     });
 
     res.status(200).json({ message: 'Logout effettuato con successo' });
